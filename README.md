@@ -8,6 +8,8 @@
 </p>
 
 ## Simple BRRRR Calculator, written in Laravel <3
+Created based on the results from using [BiggerPockets.com BRRRR calculator](https://www.biggerpockets.com/brrrr-calculator). No affiliation and no code has been deliberately copied. They have just been a huge inspiration!
+
 BRRRR
 - Identify property
 - Purchase property

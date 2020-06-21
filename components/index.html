@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+        async>
+    <link rel="stylesheet" href="simplestyle.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</p>
+        <![endif]-->
+
+    <form action="" method="POST">
+        <div class="container-fluid report-title-section">
+            <div class="row text-center">
+                <div class="col-6 offset-md-3">
+                    <div>
+                        <label for="report-title">
+                            <h2>Report Title</h2>
+                        </label>
+                        <input type="text" class="form-control" name="report-title" aria-describedby="reportTitle">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid property-info-section">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Property Info</h2>
+                    <div class="form-group mb-2">
+                        <div>
+                            <label for="property-address">Property Address</label>
+                            <input type="text" class="form-control" name="property-address"
+                                aria-describedby="propertyAddress">
+                        </div>
+
+                        <div>
+                            <label for="property-city">Property City</label>
+                            <input type="text" class="form-control" name="property-city"
+                                aria-describedby="propertyCity">
+                        </div>
+
+                        <div>
+                            <label for="property-state">Property State</label>
+                            <input type="text" class="form-control" name="property-state"
+                                aria-describedby="propertyState">
+                        </div>
+                        <div>
+                            <label for="property-zip">Property Zip</label>
+                            <input type="text" class="form-control" name="property-zip" aria-describedby="propertyZip">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h2>&nbsp;</h2>
+                    <div class="form-group mb-2">
+                        <div>
+                            <label for="property-annual-taxes">Annual Property Taxes</label>
+                            <input type="text" class="form-control" name="property-annual-taxes"
+                                aria-describedby="propertyAnnualTaxes">
+                        </div>
+
+                        <div>
+                            <label for="property-mls">MLS #</label>
+                            <input type="text" class="form-control" name="property-mls" aria-describedby="propertyMLS">
+                        </div>
+
+                        <div>
+                            <p>
+                                <label for="property-photo">Property Photo</label>
+                                <input type="file" class="form-control-file" name="property-phpto"
+                                    aria-describedby="propertyPhoto">
+                            </p>
+                        </div>
+                        <div>
+                            <label for="property-sales-desc">Property Sales Desccription</label>
+                            <textarea class="form-control" name="property-sales-desc"
+                                aria-describedby="propertySalesDescription"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid purchase-info-section">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Purchase Info</h2>
+                    <div class="form-group">
+                        <div>
+                            <label for="purchase-price">Purchase Price</label>
+                            <input type="text" class="form-control" name="purchase-price"
+                                aria-describedby="purchasePrice">
+                        </div>
+
+                        <div>
+                            <label for="purchase-closing-cost">Purchase Closing Cost</label>
+                            <input type="text" class="form-control" name="purchase-closing-cost"
+                                aria-describedby="purchaseClosingCost">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h2>&nbsp;</h2>
+                    <div class="form-group">
+                        <div>
+                            <label for="purchase-estimated-repair-cost">Estimated Repair Cost</label>
+                            <input type="text" class="form-control" name="purchase-estimated-repair-cost"
+                                aria-describedby="purchaseEstimatedRepairCost">
+                        </div>
+                        <div>
+                            <label for="purchase-arv">After Repair Value (ARV)</label>
+                            <input type="text" class="form-control" name="purchase-arv"
+                                aria-describedby="purchaseAfterRepairValueARV">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <h2>Rental Info</h2>
+            <h5>Purchase Loan Details</h5>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="rental-purchase-pmi"
+                                    aria-describedby="includePMI" />
+                                Include PMI?</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="rental-purchase-cash"
+                                    aria-describedby="cashPurchase" />
+                                Cash Purchase</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <div>
+                            <label for="rental-purchase-downpayment">Downpayment of purchase price</label>
+                            <input type="text" class="form-control" name=rental-purchase-downpayment"
+                                aria-describedby="downpayemntOfPurchasePrice">
+                        </div>
+                        <div>
+                            <label for="rental-purchase-loan-interest-rate">Loan interest rate</label>
+                            <input type="text" class="form-control" name="rental-purchase-loan-interest-rate"
+                                aria-describedby="loanInterestRate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <div>
+                            <label for="purchase-refinance-after-months">Refinance after how many months</label>
+                            <input type="text" class="form-control" name="purchase-refinance-after-months"
+                                aria-describedby="refinanceAfterHowManyMonths">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <div>
+                            <label for="purchase-estimated-rehab-months">Estimated Rehab Time in Months</label>
+                            <input type="text" class="form-control" name="purchase-estimated-rehab-months"
+                                aria-describedby="estimatedRehabTimeInMonths">
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label for="purchase-loan-amortize-years">Amortized over how many years</label>
+                                <input type="text" class="form-control" name="purchase-loan-amortize-year"
+                                    aria-describedby="amortizedOverHowManyYears">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <h2>Refinance Loan Details</h2>
+            <h5>New loan</h5>
+
+            <div class="container-fluid refinance-info-section">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div>
+                                <label for="new-loan-amount">Enter Loan Amount</label>
+                                <input type="text" class="form-control" name="new-loan-amount"
+                                    aria-describedby="newLoanAmount">
+                            </div>
+
+                            <div>
+                                <label for="loan-interest-rate">Loan Interest rate</label>
+                                <input type="text" class="form-control" name="loan-interest-rate"
+                                    aria-describedby="loanInterestRate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div>
+                                <label for="loan-amortized-years">Amortized over how many years</label>
+                                <input type="text" class="form-control" name="loan-amortized-years"
+                                    aria-describedby="amortizedOverHowManyYears">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br><br>
+        <div class="container-fluid income-section">
+
+            <h2>Income</h2>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <div>
+                            <label for="gross-monthly-rent">Total Gross monthly rent</label>
+                            <input type="text" class="form-control" name="gross-monthly-rent"
+                                aria-describedby="totalGrossMonthlyRent">
+                        </div>
+
+                        <div>
+                            <label for="other-monthly-income">Other monthly income</label>
+                            <input type="text" class="form-control" name="other-monthly-income"
+                                aria-describedby="otherMonthlyIncome">
+                        </div>
+                    </div>
+                    <h5>Fixed Landlord paid expenses</h5>
+                    <div class="form-group">
+                        <div>
+                            <label for="monthly-insurance">Monthly insurance</label>
+                            <input type="text" class="form-control" name="monthly-insurance"
+                                aria-describedby="monthlyInsurance">
+                        </div>
+                        <div>
+                            <label for="electricity">Electricity</label>
+                            <input type="text" class="form-control" name="electricity" aria-describedby="electricity">
+                        </div>
+                        <div>
+                            <label for="water-and-sewer">Water &amp; Sewer</label>
+                            <input type="text" class="form-control" name="water-and-sewer"
+                                aria-describedby="waterAndSewer">
+                        </div>
+                        <div>
+                            <label for="garbage">Garbage</label>
+                            <input type="text" class="form-control" name="garbage" aria-describedby="garbage">
+                        </div>
+                        <div>
+                            <label for="hoa">HOA</label>
+                            <input type="text" class="form-control" name="hoa" aria-describedby="hoa">
+                        </div>
+
+                        <div>
+                            <!-- COPIED FROM PREVIOUS INPUT -->
+                            <label for="property-taxes-dup">Property Taxes</label>
+                            <input type="text" class="form-control" name="property-taxes-dup"
+                                aria-describedby="propertyTaxes">
+                        </div>
+                        <div>
+                            <label for="other-monthly-expenses">Other Monthly Expenses</label>
+                            <input type="text" class="form-control" name="other-monthly-expenses"
+                                aria-describedby="otherMonthlyExpenses">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h5>Variable Landlord paid expenses</h5>
+                    <div class="form-group">
+                        <div>
+                            <label for="vacancy">Vacancy (&percnt; of your income)</label>
+                            <input type="text" class="form-control" name="vacancy" aria-describedby="vacancy">
+                        </div>
+                        <div>
+                            <label for="repairs-maintenance">Repairs &amp; Maintenance (&percnt;)</label>
+                            <input type="text" class="form-control" name="repairs-maintenance"
+                                aria-describedby="repairsAndMaintenance">
+                        </div>
+
+                        <div>
+                            <label for="capital-expenditure">Capital Expenditure</label>
+                            <input type="text" class="form-control" name="capital-expenditure"
+                                aria-describedby="capitalExpenditure">
+                        </div>
+                        <div>
+                            <label for="mgmt-fees">Management Fees</label>
+                            <input type="text" class="form-control" name="mgmt-fees" aria-describedby="managementFees">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="container-fluid future-section">
+
+            <h2>Future Assumptions</h2>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+
+                        <div>
+                            <label for="annual-income-growth">Annual Income Growth (&percnt;)</label>
+                            <input type="text" class="form-control" name="annualIncomeGrowth"
+                                aria-describedby="annual-income-growth">
+                        </div>
+                        <div>
+                            <label for="annual-pv-growth">Annual PV Growth (&percnt;)</label>
+                            <input type="text" class="form-control" name="annual-pv-growth"
+                                aria-describedby="annualPVGrowth">
+                        </div>
+
+                        <div>
+                            <label for="annual-expense-growth">Annual Expense Growth (&percnt;)</label>
+                            <input type="text" class="form-control" name="annual-expense-growth"
+                                aria-describedby="annualExpenseGrowth">
+                        </div>
+                        <div>
+                            <label for="sales-expenses">Sales Expenses (&percnt;) Realtor Fees</label>
+                            <input type="text" class="form-control" name="sales-expenses"
+                                aria-describedby="salesExpenses">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+</body>
+
+</html>

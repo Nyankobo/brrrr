@@ -20,13 +20,10 @@ class CreateRentalInfoTable extends Migration
             ->constrained('report')
             ->onDelete('cascade');
             
-            $table->boolean('is_cash_purchase')->default(0);
-            // $table->bigInteger('downpayment_of_purchase')->nullable();
-            $table->decimal('loan_interest_rate')->nullable();
-            $table->boolean('is_pmi_included')->default(0);
-            $table->integer('amortized_years')->nullable();
+            $table->bigInteger('estimated_repair_cost')->nullable();
             $table->integer('refinance_months')->nullable();
             $table->integer('rehab_months')->nullable();
+            $table->bigInteger('arv')->nullable();
 
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);

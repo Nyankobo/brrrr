@@ -2,8 +2,8 @@
 
 @section('content')
     
-    @include('sections.property')
-    @include('sections.purchase')
-    @include('sections.rental')
+    @include('sections.results.property')
+    @include('sections.results.purchase')
+    @include('sections.results.rental')
 
 @endsection

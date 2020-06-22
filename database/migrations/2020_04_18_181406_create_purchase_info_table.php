@@ -21,9 +21,14 @@ class CreatePurchaseInfoTable extends Migration
             ->onDelete('cascade');
 
             $table->bigInteger('purchase_price')->nullable();
+            $table->bigInteger('loan_amount')->nullable();
+
+            $table->boolean('is_cash_purchase')->default(0);
+            $table->integer('downpayment_of_purchase')->nullable();
+            $table->decimal('loan_interest_rate')->nullable();
+            $table->boolean('is_pmi_included')->default(0);
+            $table->integer('amortized_years')->nullable();
             $table->bigInteger('closing_cost')->nullable();
-            $table->bigInteger('estimated_repair_cost')->nullable();
-            $table->bigInteger('arv')->nullable();
 
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);

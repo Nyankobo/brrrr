@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
  * Get property form
  */
 Route::get('/', 'FormController@index')->name('home');
+Route::get('/{id}', 'FormController@index')->name('edit');
 
 /**
  * Save property details

@@ -14,4 +14,12 @@ class Property extends Model
     {
         return $this->hasMany('App\Models\Report');
     }
+
+    /**
+     * Get full address
+     */
+    public function getAddress()
+    {
+        return "$this->address, $this->city, $this->state $this->zip";
+    }
 }

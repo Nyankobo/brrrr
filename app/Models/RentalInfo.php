@@ -12,6 +12,6 @@ class RentalInfo extends Model
 
     public function report()
     {
-        return $this->belongsTo('App\Models\Report');
+        return $this->hasOne('App\Models\Report');
     }
 }

@@ -2,8 +2,11 @@
     @extends('layouts.app')
     
     @section('content')
+    @php
+        $report = isset($report) ? $report : null;
+    @endphp
 <div class="">
-    <form action="/save" method="POST" enctype="multipart/form-data">
+    <form action="/save" method="POST" enctype="multipart/form-data" id="propertyForm">
         @csrf
         <div class="container report-title-section">
             <div class="row text-center">
@@ -24,6 +27,14 @@
                 <div class="col-6">
                     <h2>Property Info</h2>
                     <div class="form-group mb-2">
+                        <div class="select">
+                            <select name="property" id="propertySelect">
+                                <option value="">- Select an existing property:</option>
+                                @foreach ($properties as $p)
+                                    <option value="{{$p->id}}">{{$p->getAddress()}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div>
                             <label for="address">Property Address</label>
                             <input type="text" class="form-control" name="address"
@@ -389,4 +400,42 @@
         <button class="button is-large" type="submit">Submit</button>
     </form>
 </div>
+@section('script')
+<script>
+    $(document).ready(function() {
+
+        // Pre-populate property info:
+        function populate(frm, data) {
+            if (data) {
+                $.each(data, function(key, value){
+                    $('[name='+key+']', frm).val(value);
+                });
+            } else {
+                frm.find('input, textarea').each(function() {
+                    $(this).val('');
+                });
+            }
+        }
+
+        $('#propertySelect').on('change', function() {
+            $frm = $('#propertyForm');
+
+            if($(this).val()) {
+                var property = $(this).val();
+                var data = null;
+                $.get('/property/getdata/' + property, function(response) {
+                    data = response;
+                }).done(function(reply) {
+                    populate($frm, data)
+
+                }).fail(function(err) {
+                    console.log(err);
+                });
+            } else {
+                populate($frm, null);
+            }
+        })
+    });
+</script>
+@show
 @endsection

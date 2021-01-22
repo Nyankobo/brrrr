@@ -19,6 +19,5 @@ const mix = require('laravel-mix');
         'public/css/simplestyle.css'
     ], 'public/css/all.css')
     .scripts([
-        'resources/js/jquery-3.4.1.slim.min.js',
         'resources/js/bootstrap.min.js'
     ], 'public/js/all.js');

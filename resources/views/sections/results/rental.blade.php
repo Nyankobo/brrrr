@@ -6,7 +6,9 @@
     <div class="card-body">
         <div class="row">
             <div class="columns">
+                @if($report->property->rental_info)
                 <div class="column is-one-quarter">
+
                     <span>Cash Purchase:</span>
                      {{ $report->property->rental_info->is_cash_purchase }}
                     <br>
@@ -91,6 +93,7 @@
                     <span>Future Sales Expenses:</span>
                     {{ $report->property->rental_info->future_sales_expenses }}
                 </div>
+                @endif
             </div>
         </div>
     </div>

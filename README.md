@@ -18,7 +18,8 @@ BRRRR
 - Rent out property
 
 ## Requirements
-- PHP 7.2+
+- PHP 7.3+
+- Node ~12
 
 ## Setup
 - Clone project

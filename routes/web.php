@@ -22,9 +22,11 @@ Route::get('/{id}', 'FormController@index')->name('edit');
  * Save property details
  */
 Route::post('/save', 'CalculateController@index')->name('save-form');
+Route::get('/property/getdata/{id}', 'FormController@property')->name('propertyInfo');
+
 
 /**
  * Display Results
  */
-Route::get('/results/{id}', 'CalculateController@results')->name('results');
+Route::get('/results/{id?}', 'CalculateController@results')->name('results');
 

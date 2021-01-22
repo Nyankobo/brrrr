@@ -11,13 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
-// mix.js('resources/js/app.js', 'public/js')
-//     .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js')
+    .postCss("resources/css/app.css", "public/css", [
+        require("tailwindcss"),
+    ]);
 
-    mix.styles([
-        'public/css/bootstrap4.min.css',
-        'public/css/simplestyle.css'
-    ], 'public/css/all.css')
-    .scripts([
-        'resources/js/bootstrap.min.js'
-    ], 'public/js/all.js');
+    // mix.styles([
+    //     'public/css/bootstrap4.min.css',
+    //     'public/css/simplestyle.css'
+    // ], 'public/css/all.css')
+    // .scripts([
+    //     'resources/js/bootstrap.min.js'
+    // ], 'public/js/all.js');

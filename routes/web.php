@@ -30,3 +30,7 @@ Route::get('/property/getdata/{id}', 'FormController@property')->name('propertyI
  */
 Route::get('/results/{id?}', 'CalculateController@results')->name('results');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+

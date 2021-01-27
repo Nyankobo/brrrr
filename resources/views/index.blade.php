@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-span-3">
                             <input type="text" name="report_title" aria-describedby="reportTitle"
-                            value="{{ old('report_title') ?: $report ? $report->name : '' }}"
+                            value="{{ (old('report_title') ?: $report) ? $report->name : '' }}"
                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                 </div>

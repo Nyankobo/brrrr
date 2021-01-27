@@ -8,6 +8,8 @@
 
 <div class="m-4">
 
+    {{ app()->environment()}}
+
     <form action="/save" method="POST" enctype="multipart/form-data" id="propertyForm">
         @csrf
         <!-- CONTAINER -->

@@ -46,9 +46,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        if(app()->environment('production') == "production") {
-            $this->mapAuthRoutes();
-        }
+        $this->mapAuthRoutes();
 
         //
     }

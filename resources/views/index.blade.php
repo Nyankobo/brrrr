@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="m-1 px-4 sm:px-0">
-                        <select name="property" id="propertySelect" class="w-full block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <select name="id" id="propertySelect" class="w-full block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <option value="">- Select an existing property:</option>
                             @foreach ($properties as $p)
                                 <option value="{{$p->id}}">{{$p->getAddress()}}</option>

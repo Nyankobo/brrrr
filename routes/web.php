@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\CalculateController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +14,9 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', [AuthenticatedSessionController::class, 'create'])
-                ->middleware('guest')
-                ->name('login');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::prefix('calculator')->middleware('auth')->group(function () {
     Route::get('/', [FormController::class, 'index'])->name('home');

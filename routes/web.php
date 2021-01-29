@@ -19,10 +19,6 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')
                 ->name('login');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::prefix('calculator')->middleware('auth')->group(function () {
     Route::get('/', [FormController::class, 'index'])->name('home');
     Route::get('/{id}', 'FormController@index')->name('edit');

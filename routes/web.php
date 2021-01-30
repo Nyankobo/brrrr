@@ -20,7 +20,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/', function () {
     return view('auth.login');
-})->middleware(['guest'])->name('dashboard');
+})->middleware(['guest']);
 
 Route::prefix('calculator')->middleware('auth')->group(function () {
     Route::get('/', [FormController::class, 'index'])->name('home');

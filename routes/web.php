@@ -14,13 +14,13 @@ use App\Http\Controllers\CalculateController;
 |
 */
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('auth.login');
-})->middleware(['guest']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::prefix('calculator')->middleware('auth')->group(function () {
     Route::get('/', [FormController::class, 'index'])->name('home');

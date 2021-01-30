@@ -7,7 +7,6 @@
     @endphp
 
 <div class="m-4">
-
     <form action="/save" method="POST" enctype="multipart/form-data" id="propertyForm">
         @csrf
         <!-- CONTAINER -->
@@ -21,7 +20,7 @@
                         </div>
                         <div class="col-span-3">
                             <input type="text" name="report_title" aria-describedby="reportTitle"
-                            value="{{ old('report_title') ?: $report ? $report->name : '' }}"
+                            value="{{ (old('report_title') ?: $report) ? $report->name : '' }}"
                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                 </div>
@@ -43,7 +42,7 @@
                     </div>
 
                     <div class="m-1 px-4 sm:px-0">
-                        <select name="property" id="propertySelect" class="w-full block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <select name="id" id="propertySelect" class="w-full block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <option value="">- Select an existing property:</option>
                             @foreach ($properties as $p)
                                 <option value="{{$p->id}}">{{$p->getAddress()}}</option>
@@ -56,7 +55,7 @@
                         <input type="text" class="text-form-custom" 
                             name="address"
                             aria-describedby="propertyAddress"
-                            value={{ old('address') ?: $report ? $report->property->address : '' }}>
+                            value={{ (old('address') ?: $report) ? $report->property->address : '' }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
@@ -64,7 +63,7 @@
                         <input type="text" class="text-form-custom" 
                             name="city"
                             aria-describedby="propertyCity"
-                            value={{ old('city') ?: $report ? $report->property->city : '' }}>
+                            value={{ (old('city') ?: $report) ? $report->property->city : '' }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
@@ -72,7 +71,7 @@
                         <input type="text" class="text-form-custom" 
                             name="state"
                             aria-describedby="propertyState"
-                            value={{ old('state') ?: $report ? $report->property->state : '' }}>
+                            value={{ (old('state') ?: $report) ? $report->property->state : '' }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
@@ -80,7 +79,7 @@
                         <input type="text" class="text-form-custom" 
                             name="zip" 
                             aria-describedby="propertyZip"
-                            value={{ old('zip') ?: $report ? $report->property->zip : '' }}>
+                            value={{ (old('zip') ?: $report) ? $report->property->zip : '' }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
@@ -88,7 +87,7 @@
                         <input type="text" class="text-form-custom"
                             name="annual_taxes"
                             aria-describedby="propertyAnnualTaxes"
-                            value={{ old('annual_taxes') ?: $report ? $report->property->annual_taxes : '' }}>
+                            value={{ (old('annual_taxes') ?: $report) ? $report->property->annual_taxes : '' }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
@@ -96,7 +95,7 @@
                         <input type="text" class="text-form-custom"
                             name="mls_no" 
                             aria-describedby="propertyMLS
-                            value={{ old('propertyMLS') ?: $report ? $report->property->mls_no : '' }}">
+                            value={{ (old('propertyMLS') ?: $report) ? $report->property->mls_no : '' }}">
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
@@ -104,14 +103,14 @@
                         <input type="file" class="text-form-custom"
                             name="photo"
                             aria-describedby="propertyPhoto"
-                            value={{ old('photo') ?: $report ? $report->property->photo : null }}>
+                            value={{ (old('photo') ?: $report) ? $report->property->photo : null }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
                         <label for="description">Property Sales Description</label>
                         <textarea class="text-form-custom"
                             name="description"
-                            aria-describedby="propertySalesDescription">{{ old('description') ?: $report ? $report->property->description : ''}}
+                            aria-describedby="propertySalesDescription">{{ (old('description') ?: $report) ? $report->property->description : ''}}
                         </textarea>
                     </div>
 
@@ -136,28 +135,28 @@
                         <label for="purchase_price">Purchase Price</label>
                         <input type="text" class="text-form-custom" name="purchase_price"
                             aria-describedby="purchasePrice"
-                            value={{ old('purchase_price') ?: $report ? $report->purchase->purchase_price : ''}}>
+                            value={{ (old('purchase_price') ?: $report) ? $report->purchase->purchase_price : ''}}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
                         <label for="closing_cost">Purchase Closing Cost</label>
                         <input type="text" class="text-form-custom" name="closing_cost"
                             aria-describedby="purchaseClosingCost"
-                            value={{ old('closing_cost') ?: $report ? $report->purchase->closing_cost : '' }}>
+                            value={{ (old('closing_cost') ?: $report) ? $report->purchase->closing_cost : '' }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
                         <label for="estimated_repair_cost">Estimated Repair Cost</label>
                         <input type="text" class="text-form-custom" name="estimated_repair_cost"
                             aria-describedby="purchaseEstimatedRepairCost"
-                            value={{ old('estimated_repair_cost') ?: $report ? $report->rental->estimated_repair_cost : '' }}>
+                            value={{ (old('estimated_repair_cost') ?: $report) ? $report->rental->estimated_repair_cost : '' }}>
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
                         <label for="arv">After Repair Value (ARV)</label>
                         <input type="text" class="text-form-custom" name="arv"
                             aria-describedby="purchaseAfterRepairValueARV"
-                            value={{ old('arv') ?: $report ? $report->rental->arv : '' }}>
+                            value={{ (old('arv') ?: $report) ? $report->rental->arv : '' }}>
                     </div>
                 </div>
             </div>
@@ -201,7 +200,7 @@
                         <label for="downpayment_of_purchase">Downpayment of purchase price</label>
                         <input type="text" class="text-form-custom" name="downpayment_of_purchase"
                             aria-describedby="downpayemntOfPurchasePrice"
-                            value={{ old('downpayment_of_purchase') ?: $report ? $report->purchase->downpayment_of_purchase : '' }}>
+                            value={{ (old('downpayment_of_purchase') ?: $report) ? $report->purchase->downpayment_of_purchase : '' }}>
                     </div>
                     <div class="m-1 text-right px-4 sm:px-0">
                         <label for="loan_amount">Loan Amount</label>

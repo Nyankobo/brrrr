@@ -1,4 +1,7 @@
 
+@php
+    $header = "Create a new Report";
+@endphp
     @extends('layouts.app')
     
     @section('content')
@@ -6,7 +9,7 @@
         $report = isset($report) ? $report : null;
     @endphp
 
-<div class="m-4">
+<div class="m-4 sm:px-6 lg:px-8">
     <form action="/save" method="POST" enctype="multipart/form-data" id="propertyForm">
         @csrf
         <!-- CONTAINER -->
@@ -99,7 +102,7 @@
                     </div>
 
                     <div class="m-1 text-right px-4 sm:px-0">
-                        <label for="photo">Property Photo</label>
+                        <label for="photo">Property Photo</label><br>
                         <input type="file" class="text-form-custom"
                             name="photo"
                             aria-describedby="propertyPhoto"

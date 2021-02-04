@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\CalculateController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MailingsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::prefix('calculator')->middleware('auth')->group(function () {
     Route::get('/', [FormController::class, 'index'])->name('home');
@@ -37,6 +37,10 @@ Route::prefix('calculator')->middleware('auth')->group(function () {
      * Display Results
      */
     Route::get('/results/{id?}', 'CalculateController@results')->name('results');
+});
+
+Route::prefix('mailings')->middleware('auth')->group(function () {
+    Route::get('/', [MailingsController::class, 'index'])->name('mailings');
 });
 
 require __DIR__.'/auth.php';

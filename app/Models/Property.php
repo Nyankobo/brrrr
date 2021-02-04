@@ -22,4 +22,12 @@ class Property extends Model
     {
         return "$this->address, $this->city, $this->state $this->zip";
     }
+
+    /**
+     * Format full address
+     */
+    public function formatAddress()
+    {
+        return "$this->address<br>$this->city, $this->state  $this->zip";
+    }
 }

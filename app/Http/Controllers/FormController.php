@@ -11,7 +11,7 @@ class FormController extends Controller
     public function index(Request $request)
     {
         //TODO: pre-populate property taxes when they're entered on the form
-        $properties = Property::all();
+        $properties = Property::all()->sortBy('is_mailing');
         return view('index')->with(['properties' => $properties]);
     }
 

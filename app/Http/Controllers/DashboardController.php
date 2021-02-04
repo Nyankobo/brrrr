@@ -14,6 +14,8 @@ class DashboardController extends Controller
     {
         //TODO: pre-populate property taxes when they're entered on the form
         $properties = Property::all();
+
+        dd($properties);
         return view('dashboard')->with([
             'properties' => $properties,
             'header' => "Properties"

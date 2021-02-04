@@ -8,13 +8,19 @@
     </div>
 
         <div class="grid grid-cols-1 gap-1 md:grid-cols-3 sm:grid-cols-2">
-            @foreach ($properties as $property)
+            @if(isset($properties))
+                @foreach ($properties as $property)
+                    <div class="bg-white rounded-md p-5 m-5">
+                            {{ $property->getAddress() }}<br>
+                            @if($property->is_mailing)
+                                <div class="float-right italic">Mailing</div>
+                            @endif
+                    </div>
+                @endforeach
+            @else
                 <div class="bg-white rounded-md p-5 m-5">
-                        {{ $property->getAddress() }}<br>
-                        @if($property->is_mailing)
-                            <div class="float-right italic">Mailing</div>
-                        @endif
-                </div>
-            @endforeach
+                    No properties
+             </div>
+            @endif
         </div>
 @endsection

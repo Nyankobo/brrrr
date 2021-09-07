@@ -12,6 +12,7 @@ use App\Models\Purchase;
 use App\Models\Refinance;
 use App\Models\RentalInfo;
 use App\Models\Report;
+use Carbon\Carbon;
 
 class CalculateController extends Controller
 {
@@ -25,10 +26,11 @@ class CalculateController extends Controller
         $propertyCols = Schema::getColumnListing('property');
         $property = Property::firstOrCreate($request->only($propertyCols));
 
-        // Create Report
+        // Create unique Report
         $report = Report::create([
             'name' => $request->input('report_title'),
-            'property_id' => $property->id
+            'property_id' => $property->id,
+            'created_at' => Carbon::now()
         ]);
 
         // Add Purchase Info
@@ -96,6 +98,7 @@ class CalculateController extends Controller
 
     /**
      * Display results
+     * @param number $id
      * @return View
      * */
     public function results($id)
@@ -123,9 +126,12 @@ class CalculateController extends Controller
     }
 
     /**
-     * Inputs: 
-     * Report $report, integer $downpayment_percent, bigInteger $closing_cost, bigInteger $repairs
-     * Return TOTAL CASH NEEDED AT PURCHASE	Downpayment + Closing Cost + Repairs
+     * Calculate purchase
+     * @param Report $report
+     * @param number $downpayment_percent, 
+     * @param number $closing_cost
+     * @param number $repairs
+     * @return number - TOTAL CASH NEEDED AT PURCHASE	Downpayment + Closing Cost + Repairs
      */
     public function calculatePurchase($report, $downpayment_percent, $closing_cost, $repairs)
     {
@@ -150,6 +156,10 @@ class CalculateController extends Controller
         ];
     }
 
+    /**
+     * Calculate the monthly mortgage payment, using purchase loan interest rate, amount, and amortized years
+     * @param Report $report
+     */
     public function mortgagePayment($report)
     {
         // M = P[r(1+r)^n/((1+r)^n)-1)]
@@ -177,6 +187,10 @@ class CalculateController extends Controller
         return $calc;
     }
 
+    /**
+     * Calculate interest monthly interest rate
+     * @param decimal $rate
+     */
     public function interestRate($rate)
     {
         // r = your monthly interest rate. 
@@ -188,6 +202,10 @@ class CalculateController extends Controller
         return $pct / 12;
     }
 
+    /**
+     * Calculate holding costs based on fixed expenses, utilities, taxes & (purchase loan amount x interest rate)
+     * @param Report $report
+     */
     public function holdingCosts($report)
     {
         // INSURANCE + UTILITIES + TAXES + LOAN INTEREST
